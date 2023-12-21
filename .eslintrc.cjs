@@ -5,7 +5,8 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'plugin:vue/vue3-strongly-recommended',
+    'plugin:vue/vue3-recommended',
+    '@nuxtjs/eslint-module',
   ],
   overrides: [
     {
