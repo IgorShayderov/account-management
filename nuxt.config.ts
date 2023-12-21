@@ -3,5 +3,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   imports: {
     autoImport: false
-  }
+  },
+  modules: ['@nuxtjs/i18n']
 })
