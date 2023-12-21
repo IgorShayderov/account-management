@@ -1,5 +1,6 @@
 {
-  "name": "nuxt-app",
+  "name": "account-management",
+  "description": "Simple app for user profile management",
   "private": true,
   "type": "module",
   "scripts": {
