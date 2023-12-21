@@ -5,8 +5,7 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'plugin:vue/vue3-recommended',
-    '@nuxtjs/eslint-module',
+    'plugin:vue/vue3-strongly-recommended',
   ],
   overrides: [
     {
@@ -14,7 +13,7 @@ module.exports = {
         node: true,
       },
       files: [
-        '.eslintrc.{js,cjs}',
+        '.eslintrc.cjs',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -29,5 +28,21 @@ module.exports = {
     'vue',
   ],
   rules: {
+    'object-curly-spacing': ['error', 'always'],
+    'max-len': ['error', {
+      code: 100,
+      tabWidth: 2,
+      ignoreUrls: true,
+      ignoreComments: false,
+      ignoreRegExpLiterals: true,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: true,
+    }],
+    'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
+    'require-jsdoc': 0,
+    'object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
+    'no-case-declarations': 'error',
+    'array-bracket-spacing': 'error',
+    'no-undef': 'off',
   },
 };
