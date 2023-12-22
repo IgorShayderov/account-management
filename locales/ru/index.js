@@ -1,3 +1,5 @@
 export default {
-  test: 'Test!'
-}
+  login: {
+    title: 'Вход',
+  },
+};

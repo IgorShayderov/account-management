@@ -1,11 +1,17 @@
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <main>
+    <NuxtPage />
+  </main>
 </template>
 
 <script setup>
-import { useI18n, useLocalePath } from '#imports';
 
-const { t } = useI18n();
 </script>
+
+<style>
+:root {
+  --background-color: gray;
+  --success-color: green;
+  --alert-color: red;
+}
+</style>
