@@ -44,5 +44,6 @@ module.exports = {
     'no-case-declarations': 'error',
     'array-bracket-spacing': 'error',
     'no-undef': 'off',
+    'import/extensions': 'off',
   },
 };
