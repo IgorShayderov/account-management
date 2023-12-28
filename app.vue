@@ -5,6 +5,9 @@
 </template>
 
 <script setup>
+import makeServer from '@/fake_server';
+
+makeServer();
 </script>
 
 <style>

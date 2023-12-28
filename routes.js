@@ -1,6 +1,12 @@
 const routes = {
+  rootPath: () => '/',
+  profilePath: () => '/profile',
+  loginPath: () => '/login',
+  ticketsPath: () => '/tickets',
+  ticketPath: (id) => `/ticket/${id}`,
   api: {
-    login: () => '/login',
+    ticketsPath: () => '/tickets',
+    ticketPath: (id) => `/ticket/${id}`,
   },
 };
 

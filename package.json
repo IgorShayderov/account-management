@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "nuxt": "^3.8.2",
-    "vue": "^3.3.12"
+    "vue": "^3.3.12",
+    "miragejs": "^0.1.48"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -22,7 +23,6 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-vue": "^9.19.2",
-    "miragejs": "^0.1.48",
     "prettier": "^3.1.1",
     "sass": "^1.69.5",
     "stylelint": "^16.0.2",

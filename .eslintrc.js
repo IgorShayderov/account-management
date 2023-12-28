@@ -7,19 +7,6 @@ module.exports = {
     'airbnb-base',
     'plugin:vue/vue3-strongly-recommended',
   ],
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: [
-        '.eslintrc.cjs',
-      ],
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
