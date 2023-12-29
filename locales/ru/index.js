@@ -34,4 +34,10 @@ export default {
       },
     },
   },
+  profile: {
+    title: 'Профиль',
+  },
+  tickets: {
+    title: 'Тикеты',
+  },
 };

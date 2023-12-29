@@ -1,6 +1,8 @@
 import { createServer, Model, Factory } from 'miragejs';
 
-const makeServer = () => createServer({
+const makeServer = ({ environment = 'development' } = {}) => createServer({
+  environment,
+
   models: {
     ticket: Model,
   },
@@ -8,7 +10,7 @@ const makeServer = () => createServer({
   factories: {
     ticket: Factory.extend({
       title(i) {
-        return `Ticket ${i}`;
+        return `Ticket ${i + 1}`;
       },
       description() {
         return 'description';
@@ -17,7 +19,9 @@ const makeServer = () => createServer({
   },
 
   routes() {
-    this.get('/tickets', (schema) => schema.movies.all());
+    this.namespace = 'api/v1';
+
+    this.get('/tickets', (schema) => schema.tickets.all());
     this.get('/ticket/:id', (schema, request) => {
       const { id } = request.params;
 
