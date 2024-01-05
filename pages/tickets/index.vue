@@ -7,7 +7,7 @@
       :key="ticket.id"
     >
       <li>
-        <NuxtLink :to="{ path: routes.ticketPath({ id: ticket.id }), params: { ticket } }">
+        <NuxtLink :to="routes.ticketPath({ id: ticket.id })">
           {{ ticket.title }}
         </NuxtLink>
       </li>
@@ -20,16 +20,13 @@
 </template>
 
 <script setup>
-import routes from '@/routes.js';
-
+const { routes } = useRoutes();
 const tickets = reactive([]);
+const { data } = await useFetch(routes.api.ticketsPath());
 
-onMounted(async () => {
-  const data = await fetch(routes.api.ticketsPath());
-  const { tickets: fetchedTickets } = await data.json();
-
-  tickets.push(...fetchedTickets);
-});
+if (data.value !== null) {
+  tickets.push(...data.value);
+}
 </script>
 
 <style lang="scss" module>

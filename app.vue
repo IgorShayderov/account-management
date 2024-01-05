@@ -5,11 +5,6 @@
 </template>
 
 <script setup>
-import makeServer from '@/fake_server';
-
-// if (process.env.USE_MOCK_API === 'true') {
-makeServer();
-// }
 </script>
 
 <style>

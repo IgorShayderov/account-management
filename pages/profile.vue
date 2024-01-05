@@ -9,8 +9,7 @@
 </template>
 
 <script setup>
-import routes from '@/routes';
-
+const { routes } = useRoutes();
 </script>
 
 <style lang="scss" module>

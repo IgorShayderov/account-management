@@ -11,19 +11,15 @@
 </template>
 
 <script setup>
-import routes from '@/routes.js';
-
-defineProps({
-  ticket: {
-    type: Object,
-    required: true,
-  },
-});
-
+const { routes } = useRoutes();
 const ticket = ref(null);
+const $route = useRoute();
 
 onMounted(async () => {
-  const data = await fetch(routes.api.ticketsPath());
+  const { id } = $route.params;
+  const { data } = await useFetch(routes.api.ticketsPath({ id }));
+
+  console.log(data.value, 'ticket');
 });
 </script>
 
