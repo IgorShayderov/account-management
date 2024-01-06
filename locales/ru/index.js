@@ -6,31 +6,31 @@ export default {
       inputs: {
         email: {
           label: 'Email',
-          placeholder: 'Type your email',
+          placeholder: 'Введите email',
         },
         password: {
-          label: 'Password',
-          placeholder: 'Type your password',
+          label: 'Пароль',
+          placeholder: 'Введите пароль',
         },
       },
       buttons: {
         showPassword: {
-          ariaLabel: 'toggle-password',
+          ariaLabel: 'Переключение пароля',
         },
         submit: {
-          title: 'Sign in',
+          title: 'Войти',
         },
       },
       messages: {
-        unathorized: 'Login or password is invalid',
-        defaultError: 'Something goes wrong',
-        success: 'Successfully authenticated!',
-        failure: 'Authentication was unsuccessful. Try again.',
+        unathorized: 'Логин или пароль некорректнен',
+        defaultError: 'Что-то пошло не так',
+        success: 'Успешный вход!',
+        failure: 'Не удалось войти. Попробуйте снова.',
       },
       errors: {
-        minLength: 'Min length is {{minLength}} characters',
-        maxLength: 'Max length is {{maxLength}} characters',
-        email: 'Should be valid email',
+        minLength: 'Минимальная длина {{minLength}} символов',
+        maxLength: 'Максимальная длина {{maxLength}} символов',
+        email: 'Должен быть корректный email',
       },
     },
   },
@@ -39,5 +39,8 @@ export default {
   },
   tickets: {
     title: 'Тикеты',
+  },
+  root: {
+    title: 'Главная',
   },
 };
