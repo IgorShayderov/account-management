@@ -1,14 +1,13 @@
 import { faker } from '@faker-js/faker';
 import { v4 } from 'uuid';
 
+import { getUser } from './users';
+
 const createTicket = () => ({
   id: v4(),
   title: faker.lorem.word(),
   text: faker.lorem.word(),
-  author: {
-    id: v4(),
-    name: faker.person.firstName(),
-  },
+  author: getUser(),
   date: faker.date.anytime(),
 });
 

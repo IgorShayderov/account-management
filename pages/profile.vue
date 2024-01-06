@@ -12,6 +12,12 @@
 
 <script setup>
 const { routes } = useRoutes();
+
+const $route = useRoute();
+
+onMounted(() => {
+  console.log($route, 'oO');
+});
 </script>
 
 <style lang="scss" module>
