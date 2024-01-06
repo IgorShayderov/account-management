@@ -1,37 +1,19 @@
 export default {
   login: {
     title: 'Вход',
-    authForm: {
-      title: 'Auth',
-      inputs: {
-        email: {
-          label: 'Email',
-          placeholder: 'Введите email',
-        },
-        password: {
-          label: 'Пароль',
-          placeholder: 'Введите пароль',
-        },
+    register: 'Нет аккаунта? Зарегистрируйтесь',
+    fields: {
+      username: {
+        placeholder: 'Имя пользователя',
+        label: 'Введите имя',
       },
-      buttons: {
-        showPassword: {
-          ariaLabel: 'Переключение пароля',
-        },
-        submit: {
-          title: 'Войти',
-        },
+      password: {
+        placeholder: 'Пароль',
+        label: 'Введите пароль',
       },
-      messages: {
-        unathorized: 'Логин или пароль некорректнен',
-        defaultError: 'Что-то пошло не так',
-        success: 'Успешный вход!',
-        failure: 'Не удалось войти. Попробуйте снова.',
-      },
-      errors: {
-        minLength: 'Минимальная длина {{minLength}} символов',
-        maxLength: 'Максимальная длина {{maxLength}} символов',
-        email: 'Должен быть корректный email',
-      },
+    },
+    submit: {
+      title: 'Войти',
     },
   },
   profile: {
@@ -39,6 +21,23 @@ export default {
   },
   tickets: {
     title: 'Тикеты',
+    fields: {
+      id: {
+        label: '#',
+      },
+      title: {
+        label: 'Название',
+      },
+      text: {
+        label: 'Описание',
+      },
+      author: {
+        label: 'Автор',
+      },
+      date: {
+        label: 'Дата создания',
+      },
+    },
   },
   root: {
     title: 'Главная',

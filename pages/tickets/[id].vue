@@ -1,11 +1,17 @@
 <template>
   <div>
     <div v-if="ticket">
-      <h2>Ticket!</h2>
+      <h2 class="text-h4 q-my-md">
+        {{ ticket.title }}
+      </h2>
+
+      <p>{{ ticket.text }}</p>
+
+      <p>Author: {{ ticket.author.name }}</p>
     </div>
 
     <NuxtLink :to="routes.rootPath()">
-      Back
+      {{ $t('root.title') }}
     </NuxtLink>
   </div>
 </template>
@@ -17,9 +23,11 @@ const $route = useRoute();
 
 onMounted(async () => {
   const { id } = $route.params;
-  const { data } = await useFetch(routes.api.ticketsPath({ id }));
+  const { data } = await useFetch(routes.api.ticketPath({ id }));
 
-  console.log(data.value, 'ticket');
+  console.log(data.value, 'ticket', routes.api.ticketPath({ id }));
+
+  ticket.value = data.value;
 });
 </script>
 

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2>{{ $t('tickets.title') }}</h2>
+    <h2 class="text-h4 q-my-md">
+      {{ $t('tickets.title') }}
+    </h2>
 
     <TicketsList />
 
