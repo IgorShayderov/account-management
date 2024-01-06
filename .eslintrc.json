@@ -32,6 +32,7 @@
     "array-bracket-spacing": "error",
     "no-undef": "off",
     "import/extensions": "off",
-    "vue/multi-word-component-names": "off"
+    "vue/multi-word-component-names": "off",
+    "vue/component-name-in-template-casing":["error", "PascalCase", { "registeredComponentsOnly": false }]
   }
 }
