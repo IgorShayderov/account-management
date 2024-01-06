@@ -8,4 +8,7 @@ export default defineNuxtConfig({
       USE_MOCK_API: process.env.USE_MOCK_API,
     },
   },
+  quasar: {
+    lang: 'ru',
+  },
 });
