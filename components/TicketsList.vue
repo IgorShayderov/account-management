@@ -14,6 +14,10 @@
 </template>
 
 <script setup>
+import dayjs from 'dayjs';
+
+const DATE_FORMAT = 'DD.MM.YYYY';
+
 const { routes } = useRoutes();
 const { t } = useI18n();
 
@@ -60,7 +64,8 @@ const columns = [
   {
     name: 'date',
     label: t('tickets.fields.date.label'),
-    field: 'date',
+    field: ({ date }) => dayjs(date).format(DATE_FORMAT),
+    sort: (a, b, rowA, rowB) => dayjs(rowA.date, DATE_FORMAT).diff(dayjs(rowB.date, DATE_FORMAT)),
     align: 'left',
     sortable: true,
   },
