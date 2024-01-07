@@ -13,7 +13,10 @@
 
       <p>{{ $t('profile.fields.surname.title') }}: {{ user.surname }}</p>
 
-      <p>{{ $t('profile.fields.birthdate.title') }}: {{ user.birthdate }}</p>
+      <p>
+        {{ $t('profile.fields.birthdate.title') }}:
+        {{ dayjs(user.birthdate).format(DATE_FORMAT) }}
+      </p>
 
       <p>{{ $t('profile.fields.city.title') }}: {{ user.city }}</p>
 
@@ -33,6 +36,9 @@
 </template>
 
 <script setup>
+import dayjs from 'dayjs';
+
+const { DATE_FORMAT } = useDateFormats();
 const { routes } = useRoutes();
 
 const $route = useRoute();

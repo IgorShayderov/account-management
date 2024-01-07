@@ -25,8 +25,7 @@
 <script setup>
 import dayjs from 'dayjs';
 
-const DATE_FORMAT = 'DD.MM.YYYY';
-
+const { DATE_FORMAT } = useDateFormats();
 const { routes } = useRoutes();
 const { t } = useI18n();
 
