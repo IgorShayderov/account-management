@@ -1,15 +1,13 @@
 <template>
   <main>
-    <nav>
-      <NuxtLink :to="routes.profilePath()">
+    <nav class="row justify-end">
+      <QBtn
+        @click="$router.push(routes.profilePath({ id: 1 }))"
+      >
         {{ $t('profile.title') }}
-      </NuxtLink>
+      </QBtn>
 
       <QBtn
-        unelevated
-        type="submits"
-        color="light-green-7"
-        size="lg"
         :label="$t('root.actions.exit')"
         @click="handleExit"
       />

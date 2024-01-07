@@ -10,7 +10,7 @@ const useAuth = () => {
     }));
 
     token.value = data.token;
-    currentUser.value = data.username;
+    currentUser.value = data.user;
   };
 
   const logOut = () => {
