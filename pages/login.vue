@@ -74,6 +74,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+  layout: 'guest',
+});
+
 const { routes } = useRoutes();
 
 const $router = useRouter();
@@ -100,9 +104,21 @@ const reset = () => {
   myForm.value.resetValidation();
 };
 
-const onSubmit = () => {
-  console.log('submit');
-  $router.push(routes.rootPath());
+const onSubmit = async () => {
+  // validate
+  try {
+    const data = await $fetch(routes.api.loginPath({
+      username: username.value,
+      password: password.value,
+    }));
+
+    // localStorage.setItem('token', data.token);
+    // localStorage.setItem('current-user', data.username);
+  } catch (e) {
+    // handle error
+  }
+
+  // $router.push(routes.rootPath());
 };
 </script>
 

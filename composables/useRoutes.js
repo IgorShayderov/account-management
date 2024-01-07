@@ -12,6 +12,7 @@ const useRoutes = () => {
       ticketsPath: () => [BASE_API_PATH, 'tickets'].join('/'),
       ticketPath: ({ id }) => [BASE_API_PATH, 'tickets', id].join('/'),
       userPath: ({ id }) => [BASE_API_PATH, 'users', id].join('/'),
+      loginPath: () => [BASE_API_PATH, 'login'].join('/'),
     },
   };
 
