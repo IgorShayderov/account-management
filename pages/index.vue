@@ -8,9 +8,11 @@
 
     <TicketsList />
 
-    <NuxtLink :to="routes.profilePath()">
-      {{ $t('profile.title') }}
-    </NuxtLink>
+    <footer>
+      <NuxtLink :to="routes.profilePath()">
+        {{ $t('profile.title') }}
+      </NuxtLink>
+    </footer>
   </div>
 </template>
 

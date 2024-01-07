@@ -2,7 +2,7 @@
   <div
     class="q-pa-md"
   >
-    <AppBreadcrumbs :items="[{label: $t('root.title')}]" />
+    <AppBreadcrumbs :items="breadcrumbs" />
 
     <h2 class="text-h4 q-my-md">
       {{ $t('profile.title') }}
@@ -40,12 +40,15 @@ import dayjs from 'dayjs';
 
 const { DATE_FORMAT } = useDateFormats();
 const { routes } = useRoutes();
+const { t } = useI18n();
 
 const $route = useRoute();
 
 const { data: user } = await useFetch(routes.api.userPath({ id: $route.params.id }));
 
-console.log(user, 'oO');
+const breadcrumbs = [
+  { label: t('root.title'), to: routes.rootPath() },
+  { label: t('profile.title') }];
 </script>
 
 <style lang="scss" module>

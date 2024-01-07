@@ -2,8 +2,8 @@
   <QBreadcrumbs>
     <QBreadcrumbsEl
       v-for="item in $props.items"
-      :label="item.label"
       :key="item.id"
+      v-bind="item"
     />
   </QBreadcrumbs>
 </template>
