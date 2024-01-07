@@ -1,40 +1,19 @@
 <template>
   <div class="q-pa-md">
-    <AppBreadcrumbs :items="[{label: $t('root.title')}]" />
+    <AppBreadcrumbs :items="breacrumbs" />
 
     <h1 class="text-h4 q-my-md">
       {{ $t('root.title') }}
     </h1>
 
     <TicketsList />
-
-    <footer>
-      <NuxtLink :to="routes.profilePath()">
-        {{ $t('profile.title') }}
-      </NuxtLink>
-
-      <QBtn
-        unelevated
-        type="submits"
-        color="light-green-7"
-        size="lg"
-        :label="$t('root.actions.exit')"
-        @click="handleExit"
-      />
-    </footer>
   </div>
 </template>
 
 <script setup>
-const { routes } = useRoutes();
-const { logOut } = useAuth();
+const { t } = useI18n();
 
-const $router = useRouter();
-
-const handleExit = () => {
-  logOut();
-  $router.push(routes.loginPath());
-};
+const breacrumbs = [{ label: t('root.title') }];
 </script>
 
 <style lang="scss" module>

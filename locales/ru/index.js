@@ -33,6 +33,9 @@ export default {
       },
     },
   },
+  ticket: {
+    title: 'Тикет',
+  },
   tickets: {
     title: 'Тикеты',
     fields: {

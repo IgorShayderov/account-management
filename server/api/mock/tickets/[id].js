@@ -1,3 +1,6 @@
 import { getTicket } from '@/server/lib/tickets';
 
-export default defineEventHandler(() => getTicket());
+export default defineEventHandler(() => {
+  console.log('works!');
+  return getTicket();
+});

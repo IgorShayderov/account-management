@@ -48,7 +48,8 @@ const { data: user } = await useFetch(routes.api.userPath({ id: $route.params.id
 
 const breadcrumbs = [
   { label: t('root.title'), to: routes.rootPath() },
-  { label: t('profile.title') }];
+  { label: t('profile.title') },
+];
 </script>
 
 <style lang="scss" module>

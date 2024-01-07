@@ -10,12 +10,22 @@
     :loading="pending"
     row-key="name"
   >
-    <template #body-cell-author="{ row, col }">
-      <td v-if="col.name === 'author'">
+    <template #body-cell-author="{ row }">
+      <td>
         <NuxtLink
           :to="routes.profilePath({ id: row.author.id })"
         >
           {{ row.author.name }}
+        </NuxtLink>
+      </td>
+    </template>
+
+    <template #body-cell-title="{ row }">
+      <td>
+        <NuxtLink
+          :to="routes.ticketPath({ id: row.id })"
+        >
+          {{ row.title }}
         </NuxtLink>
       </td>
     </template>
