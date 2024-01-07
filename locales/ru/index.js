@@ -55,5 +55,8 @@ export default {
   },
   root: {
     title: 'Главная',
+    actions: {
+      exit: 'Выход',
+    },
   },
 };

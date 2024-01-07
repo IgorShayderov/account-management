@@ -12,6 +12,10 @@
       <NuxtLink :to="routes.profilePath()">
         {{ $t('profile.title') }}
       </NuxtLink>
+
+      <NuxtLink :to="routes.loginPath()">
+        {{ $t('root.actions.exit') }}
+      </NuxtLink>
     </footer>
   </div>
 </template>
