@@ -25,8 +25,6 @@ onMounted(async () => {
   const { id } = $route.params;
   const { data } = await useFetch(routes.api.ticketPath({ id }));
 
-  console.log(data.value, 'ticket', routes.api.ticketPath({ id }));
-
   ticket.value = data.value;
 });
 </script>

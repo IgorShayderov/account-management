@@ -4,13 +4,14 @@ const useRoutes = () => {
 
   const routes = {
     rootPath: () => '/',
-    profilePath: () => '/profile',
+    profilePath: ({ id } = {}) => (id ? `/profile/${id}` : '/profile'),
     loginPath: () => '/login',
     ticketsPath: () => '/tickets',
     ticketPath: ({ id }) => `/tickets/${id}`,
     api: {
       ticketsPath: () => [BASE_API_PATH, 'tickets'].join('/'),
       ticketPath: ({ id }) => [BASE_API_PATH, 'tickets', id].join('/'),
+      userPath: ({ id }) => [BASE_API_PATH, 'users', id].join('/'),
     },
   };
 

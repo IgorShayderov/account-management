@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="q-pa-md">
     <h1 class="text-h4 q-my-md">
       {{ $t('root.title') }}
     </h1>

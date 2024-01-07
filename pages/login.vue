@@ -4,9 +4,9 @@
       class="row"
       :class="$style['card__header']"
     >
-      <h1 class="text-h4 q-my-md">
+      <h2 class="text-h4 q-my-md">
         {{ $t('login.title') }}
-      </h1>
+      </h2>
     </header>
 
     <div

@@ -13,11 +13,7 @@
 <script setup>
 const { routes } = useRoutes();
 
-const $route = useRoute();
-
-onMounted(() => {
-  console.log($route, 'oO');
-});
+// получаем текущего пользователя и делаем редирект
 </script>
 
 <style lang="scss" module>

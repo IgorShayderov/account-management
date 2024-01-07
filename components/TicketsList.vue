@@ -1,16 +1,25 @@
 <template>
-  <div class="q-pa-md">
-    <QTable
-      flat
-      bordered
-      :title="$t('tickets.title')"
-      :rows="tickets"
-      :columns="columns"
-      :pagination="pagination"
-      :rows-per-page-options="[10, 25, 50, 100, 0]"
-      row-key="name"
-    />
-  </div>
+  <QTable
+    flat
+    bordered
+    :title="$t('tickets.title')"
+    :rows="tickets"
+    :columns="columns"
+    :pagination="pagination"
+    :rows-per-page-options="[10, 25, 50, 100, 0]"
+    :loading="pending"
+    row-key="name"
+  >
+    <template #body-cell-author="{ row, col }">
+      <td v-if="col.name === 'author'">
+        <NuxtLink
+          :to="routes.profilePath({ id: row.author.id })"
+        >
+          {{ row.author.name }}
+        </NuxtLink>
+      </td>
+    </template>
+  </QTable>
 </template>
 
 <script setup>
@@ -23,7 +32,7 @@ const { t } = useI18n();
 
 const tickets = reactive([]);
 
-const { data } = await useFetch(routes.api.ticketsPath());
+const { data, pending } = await useFetch(routes.api.ticketsPath());
 
 if (data.value !== null) {
   tickets.push(...data.value);
@@ -57,7 +66,6 @@ const columns = [
   {
     name: 'author',
     label: t('tickets.fields.author.label'),
-    field: ({ author }) => author.name,
     align: 'left',
     sortable: true,
   },
