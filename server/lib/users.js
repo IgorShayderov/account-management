@@ -1,8 +1,7 @@
 import { faker } from '@faker-js/faker';
-import { v4 } from 'uuid';
 
 const createUser = () => ({
-  id: v4(),
+  id: faker.number.int(100),
   name: faker.person.firstName(),
   surname: faker.person.lastName(),
   birthdate: faker.date.birthdate(),

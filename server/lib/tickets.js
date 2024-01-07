@@ -1,10 +1,9 @@
 import { faker } from '@faker-js/faker';
-import { v4 } from 'uuid';
 
 import { getUser } from './users';
 
 const createTicket = () => ({
-  id: v4(),
+  id: faker.number.int(100),
   title: faker.lorem.word(),
   text: faker.lorem.word(),
   author: getUser(),

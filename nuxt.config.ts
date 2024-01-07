@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     public: {
       USE_MOCK_API: process.env.USE_MOCK_API,
       GUEST_PAGES,
+
     },
   },
   quasar: {
@@ -17,24 +18,6 @@ export default defineNuxtConfig({
       notify: {
         //
       },
-    },
-  },
-  hooks: {
-    'pages:extend': function (pages) {
-      function setMiddleware(pages) {
-        pages.forEach((page) => {
-          if (!GUEST_PAGES.includes(page.name)) {
-            page.meta ||= {};
-            page.meta.middleware = ['auth'];
-          }
-
-          if (page.children) {
-            setMiddleware(page.children);
-          }
-        });
-      }
-
-      setMiddleware(pages);
     },
   },
 });

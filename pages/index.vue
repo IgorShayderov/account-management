@@ -13,15 +13,28 @@
         {{ $t('profile.title') }}
       </NuxtLink>
 
-      <NuxtLink :to="routes.loginPath()">
-        {{ $t('root.actions.exit') }}
-      </NuxtLink>
+      <QBtn
+        unelevated
+        type="submits"
+        color="light-green-7"
+        size="lg"
+        :label="$t('root.actions.exit')"
+        @click="handleExit"
+      />
     </footer>
   </div>
 </template>
 
 <script setup>
 const { routes } = useRoutes();
+const { logOut } = useAuth();
+
+const $router = useRouter();
+
+const handleExit = () => {
+  logOut();
+  $router.push(routes.loginPath());
+};
 </script>
 
 <style lang="scss" module>

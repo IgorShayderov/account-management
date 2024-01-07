@@ -79,6 +79,7 @@ definePageMeta({
 });
 
 const { routes } = useRoutes();
+const { logIn } = useAuth();
 
 const $router = useRouter();
 
@@ -107,18 +108,13 @@ const reset = () => {
 const onSubmit = async () => {
   // validate
   try {
-    const data = await $fetch(routes.api.loginPath({
-      username: username.value,
-      password: password.value,
-    }));
+    await logIn({ username: username.value, password: password.value });
 
-    // localStorage.setItem('token', data.token);
-    // localStorage.setItem('current-user', data.username);
+    $router.push(routes.rootPath());
   } catch (e) {
     // handle error
+    console.error(e, 'oO');
   }
-
-  // $router.push(routes.rootPath());
 };
 </script>
 
