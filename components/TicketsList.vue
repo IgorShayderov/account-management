@@ -49,6 +49,7 @@ const columns = [
     field: 'id',
     align: 'left',
     sortable: true,
+    style: 'width: 300px',
   },
   {
     name: 'title',

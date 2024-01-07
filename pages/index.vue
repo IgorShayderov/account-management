@@ -1,5 +1,7 @@
 <template>
   <div class="q-pa-md">
+    <AppBreadcrumbs :items="[{label: $t('root.title')}]" />
+
     <h1 class="text-h4 q-my-md">
       {{ $t('root.title') }}
     </h1>

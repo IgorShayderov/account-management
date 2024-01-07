@@ -1,26 +1,34 @@
 <template>
-  <div>
+  <div
+    class="q-pa-md"
+  >
+    <AppBreadcrumbs :items="[{label: $t('root.title')}]" />
+
     <h2 class="text-h4 q-my-md">
       {{ $t('profile.title') }}
     </h2>
 
-    <p>{{ data.name }}</p>
+    <template v-if="user">
+      <p>{{ $t('profile.fields.name.title') }}: {{ user.name }}</p>
 
-    <section>
-      <QAvatar
-        rounded
-        size="300px"
-        font-size="82px"
-        color="teal"
-        text-color="white"
-      >
-        {{ data.name.charAt(0) }}
-      </QAvatar>
-    </section>
+      <p>{{ $t('profile.fields.surname.title') }}: {{ user.surname }}</p>
 
-    <NuxtLink :to="routes.rootPath()">
-      Back
-    </NuxtLink>
+      <p>{{ $t('profile.fields.birthdate.title') }}: {{ user.birthdate }}</p>
+
+      <p>{{ $t('profile.fields.city.title') }}: {{ user.city }}</p>
+
+      <section>
+        <QAvatar
+          rounded
+          size="300px"
+          font-size="82px"
+          color="teal"
+          text-color="white"
+        >
+          {{ user.name.charAt(0) }}
+        </QAvatar>
+      </section>
+    </template>
   </div>
 </template>
 
@@ -29,8 +37,9 @@ const { routes } = useRoutes();
 
 const $route = useRoute();
 
-const { data } = await useFetch(routes.api.userPath({ id: $route.params.id }));
+const { data: user } = await useFetch(routes.api.userPath({ id: $route.params.id }));
 
+console.log(user, 'oO');
 </script>
 
 <style lang="scss" module>

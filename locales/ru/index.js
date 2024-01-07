@@ -18,6 +18,20 @@ export default {
   },
   profile: {
     title: 'Профиль',
+    fields: {
+      name: {
+        title: 'Имя',
+      },
+      surname: {
+        title: 'Фамилия',
+      },
+      birthdate: {
+        title: 'Дата рождения',
+      },
+      city: {
+        title: 'Город',
+      },
+    },
   },
   tickets: {
     title: 'Тикеты',
