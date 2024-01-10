@@ -1,5 +1,5 @@
 <template>
-  <QBreadcrumbs>
+  <QBreadcrumbs class="q-mb-sm">
     <QBreadcrumbsEl
       v-for="item in $props.items"
       :key="item.id"

@@ -87,7 +87,7 @@ const userDate = computed({
   },
 });
 
-const isCurrentUser = computed(() => user.id === currentUser.id);
+const isCurrentUser = computed(() => +user.value.id === currentUser.value.id);
 </script>
 
 <style lang="scss" module>

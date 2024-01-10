@@ -2,29 +2,33 @@
   <div class="q-pa-md">
     <AppBreadcrumbs :items="breadcrumbs" />
 
-    <h2 class="text-h4 q-my-md">
-      {{ $t('ticket.title') }}
-    </h2>
+    <QCard class="my-card">
+      <QCardSection>
+        <h2 class="text-h4 q-my-md">
+          {{ $t('ticket.title') }}
+        </h2>
 
-    <template v-if="ticket">
-      <p>{{ $t('tickets.fields.title.label') }}: {{ ticket.title }}</p>
+        <template v-if="ticket">
+          <p>{{ $t('tickets.fields.title.label') }}: {{ ticket.title }}</p>
 
-      <p>{{ $t('tickets.fields.text.label') }}: {{ ticket.text }}</p>
+          <p>{{ $t('tickets.fields.text.label') }}: {{ ticket.text }}</p>
 
-      <p>{{ $t('tickets.fields.author.label') }}: {{ ticket.author.name }}</p>
+          <p>{{ $t('tickets.fields.author.label') }}: {{ ticket.author.name }}</p>
 
-      <p>
-        {{ $t('tickets.fields.date.label') }}:
-        {{ customDate(ticket.date).format(DATE_FORMAT) }}
-      </p>
-    </template>
+          <p>
+            {{ $t('tickets.fields.date.label') }}:
+            {{ customDate(ticket.date).format(DATE_FORMAT) }}
+          </p>
+        </template>
+      </QCardSection>
+    </QCard>
   </div>
 </template>
 
 <script setup>
 const { routes } = useRoutes();
 const { t } = useI18n();
-const { DATE_FORMAT } = useDateFormats();
+const { DATE_FORMAT, customDate } = useDateFormats();
 
 const $route = useRoute();
 
