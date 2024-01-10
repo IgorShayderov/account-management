@@ -60,6 +60,7 @@ export default {
     title: 'Главная',
     actions: {
       exit: 'Выход',
+      close: 'Закрыть',
     },
   },
 };

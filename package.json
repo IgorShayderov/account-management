@@ -11,8 +11,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
     "dayjs": "^1.11.10",
     "nuxt": "^3.8.2",
+    "pinia": "^2.1.7",
     "vue": "^3.3.12"
   },
   "devDependencies": {

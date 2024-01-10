@@ -13,14 +13,15 @@
 
       <p>{{ $t('tickets.fields.author.label') }}: {{ ticket.author.name }}</p>
 
-      <p>{{ $t('tickets.fields.date.label') }}:  {{ dayjs(ticket.date).format(DATE_FORMAT) }}</p>
+      <p>
+        {{ $t('tickets.fields.date.label') }}:
+        {{ customDate(ticket.date).format(DATE_FORMAT) }}
+      </p>
     </template>
   </div>
 </template>
 
 <script setup>
-import dayjs from 'dayjs';
-
 const { routes } = useRoutes();
 const { t } = useI18n();
 const { DATE_FORMAT } = useDateFormats();

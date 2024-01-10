@@ -1,13 +1,15 @@
 <template>
   <main>
-    <nav class="row justify-end">
+    <nav class="row justify-end q-py-md">
       <QBtn
-        @click="$router.push(routes.profilePath({ id: 1 }))"
+        class="q-mr-md"
+        @click="$router.push(routes.profilePath({ id: currentUser.id }))"
       >
         {{ $t('profile.title') }}
       </QBtn>
 
       <QBtn
+        class="q-mr-md"
         :label="$t('root.actions.exit')"
         @click="handleExit"
       />
@@ -18,7 +20,7 @@
 
 <script setup>
 const { routes } = useRoutes();
-const { logOut } = useAuth();
+const { logOut, currentUser } = useAuth();
 
 const $router = useRouter();
 
