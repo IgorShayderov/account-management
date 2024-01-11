@@ -2,6 +2,7 @@
   <main>
     <nav class="row justify-end q-py-md">
       <QBtn
+        color="primary"
         class="q-mr-md"
         @click="$router.push(routes.profilePath({ id: currentUser.id }))"
       >
@@ -9,6 +10,7 @@
       </QBtn>
 
       <QBtn
+        color="accent"
         class="q-mr-md"
         :label="$t('root.actions.exit')"
         @click="handleExit"

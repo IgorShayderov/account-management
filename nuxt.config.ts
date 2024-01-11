@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import colors from './colors.json';
+
 const GUEST_PAGES = ['login'];
 
 export default defineNuxtConfig({
@@ -17,6 +19,9 @@ export default defineNuxtConfig({
     config: {
       notify: {
         //
+      },
+      brand: {
+        ...colors,
       },
     },
   },

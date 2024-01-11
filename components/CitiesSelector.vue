@@ -1,7 +1,5 @@
 <template>
-  <QSelect :options="CITIES">
-    <!--  -->
-  </QSelect>
+  <QSelect :options="CITIES" />
 </template>
 
 <script setup>
