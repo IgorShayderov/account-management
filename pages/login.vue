@@ -18,16 +18,19 @@
         <QForm
           class="q-gutter-md"
           @submit.prevent="onSubmit"
+          @reset="resetForm"
         >
           <QInput
             v-model="username"
             autocomplete="username"
             filled
             clearable
+            lazy-rules
             :placeholder="$t('login.fields.username.placeholder')"
             type="text"
             :label="$t('login.fields.username.label')"
             :disable="isLoading"
+            :rules="usernameRules"
           />
 
           <QInput
@@ -35,10 +38,12 @@
             autocomplete="current-password"
             filled
             clearable
+            lazy-rules
             :placeholder="$t('login.fields.password.placeholder')"
             :type="isPassworVisible ? 'text' : 'password'"
             :label="$t('login.fields.password.label')"
             :disable="isLoading"
+            :rules="passwordRules"
           >
             <template #append>
               <QIcon
@@ -91,23 +96,21 @@ const passwordInputType = ref('password'); // 'text' | 'password'
 
 const isPassworVisible = computed(() => passwordInputType.value === 'text');
 
-const validate = () => {
-  //
+const usernameRules = computed(() => [
+  (val) => !!val.trim() || t('login.fields.username.messages.required'),
+]);
+const passwordRules = computed(() => [
+  (val) => !!val.trim() || t('login.fields.password.messages.required'),
+]);
+
+const resetForm = () => {
+  username.value = '';
+  password.value = '';
 };
 
 const onSubmit = async () => {
   try {
     isLoading.value = true;
-
-    await new Promise((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 3000);
-    });
-
-    if (Math.floor(Math.random() * 2) === 1) {
-      throw new Error('Error');
-    }
 
     await logIn({ username: username.value, password: password.value });
 

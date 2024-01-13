@@ -6,10 +6,16 @@ export default {
       username: {
         placeholder: 'Имя пользователя',
         label: 'Введите имя',
+        messages: {
+          required: 'Поле обязательное для заполнения',
+        },
       },
       password: {
         placeholder: 'Пароль',
         label: 'Введите пароль',
+        messages: {
+          required: 'Поле обязательное для заполнения',
+        },
       },
     },
     submit: {
