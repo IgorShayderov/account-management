@@ -9,67 +9,66 @@
       </h2>
     </header>
 
-    <div
-      class="row justify-center"
+    <QCard
+      bordered
+      class="q-pa-lg shadow-1"
+      :class="$style['login__card']"
     >
-      <QCard
-        bordered
-        class="q-pa-lg shadow-1"
-        :class="$style['login__card']"
-      >
-        <QCardSection>
-          <QForm
-            class="q-gutter-md"
-            @submit.prevent="onSubmit"
+      <QCardSection>
+        <QForm
+          class="q-gutter-md"
+          @submit.prevent="onSubmit"
+        >
+          <QInput
+            v-model="username"
+            autocomplete="username"
+            filled
+            clearable
+            :placeholder="$t('login.fields.username.placeholder')"
+            type="text"
+            :label="$t('login.fields.username.label')"
+            :disable="isLoading"
+          />
+
+          <QInput
+            v-model="password"
+            autocomplete="current-password"
+            filled
+            clearable
+            :placeholder="$t('login.fields.password.placeholder')"
+            :type="isPassworVisible ? 'text' : 'password'"
+            :label="$t('login.fields.password.label')"
+            :disable="isLoading"
           >
-            <QInput
-              v-model="username"
-              autocomplete="username"
-              filled
-              clearable
-              :placeholder="$t('login.fields.username.placeholder')"
-              type="text"
-              :label="$t('login.fields.username.label')"
-            />
-
-            <QInput
-              v-model="password"
-              autocomplete="current-password"
-              filled
-              clearable
-              :placeholder="$t('login.fields.password.placeholder')"
-              :type="isPassworVisible ? 'text' : 'password'"
-              :label="$t('login.fields.password.label')"
-            >
-              <template #append>
-                <QIcon
-                  :name="isPassworVisible ? 'visibility' : 'visibility_off'"
-                  class="cursor-pointer"
-                  @click="passwordInputType = isPassworVisible ? 'password' : 'text'"
-                />
-              </template>
-            </QInput>
-
-            <QCardActions class="q-px-md">
-              <QBtn
-                unelevated
-                type="submits"
-                color="light-green-7"
-                size="lg"
-                class="full-width"
-                :label="$t('login.submit.title')"
+            <template #append>
+              <QIcon
+                :name="isPassworVisible ? 'visibility' : 'visibility_off'"
+                class="cursor-pointer"
+                @click="passwordInputType = isPassworVisible ? 'password' : 'text'"
               />
-            </QCardActions>
-          </QForm>
-        </QCardSection>
+            </template>
+          </QInput>
 
-        <QCardSection class="text-center q-pa-none">
-          <p class="text-grey-6">
-            {{ $t('login.register') }}
-          </p>
-        </QCardSection>
-      </QCard>
-    </div>
+          <QCardActions class="q-px-md">
+            <QBtn
+              unelevated
+              :loading="isLoading"
+              type="submits"
+              color="primary"
+              size="lg"
+              class="full-width"
+              :label="$t('login.submit.title')"
+            />
+          </QCardActions>
+        </QForm>
+      </QCardSection>
+
+      <QCardSection class="text-center q-pa-none">
+        <p class="text-grey-6">
+          {{ $t('login.register') }}
+        </p>
+      </QCardSection>
+    </QCard>
   </div>
 </template>
 
@@ -80,9 +79,12 @@ definePageMeta({
 
 const { routes } = useRoutes();
 const { logIn } = useAuth();
+const { t } = useI18n();
+const { makeErrorNotification } = useNotifications();
 
 const $router = useRouter();
 
+const isLoading = ref(false);
 const username = ref('');
 const password = ref('');
 const passwordInputType = ref('password'); // 'text' | 'password'
@@ -90,30 +92,34 @@ const passwordInputType = ref('password'); // 'text' | 'password'
 const isPassworVisible = computed(() => passwordInputType.value === 'text');
 
 const validate = () => {
-  myForm.value.validate().then((success) => {
-    if (success) {
-      // yay, models are correct
-    } else {
-      // oh no, user has filled in
-      // at least one invalid value
-    }
-  });
-};
-
-// to reset validations:
-const reset = () => {
-  myForm.value.resetValidation();
+  //
 };
 
 const onSubmit = async () => {
-  // validate
   try {
+    isLoading.value = true;
+
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 3000);
+    });
+
+    if (Math.floor(Math.random() * 2) === 1) {
+      throw new Error('Error');
+    }
+
     await logIn({ username: username.value, password: password.value });
 
     $router.push(routes.rootPath());
   } catch (e) {
-    // handle error
-    console.error(e, 'oO');
+    const message = e?.response?.status === 401
+      ? t('login.messages.unauthorized')
+      : t('login.messages.unsuccessfulAuth');
+
+    makeErrorNotification(message);
+  } finally {
+    isLoading.value = false;
   }
 };
 </script>

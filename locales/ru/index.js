@@ -15,6 +15,10 @@ export default {
     submit: {
       title: 'Войти',
     },
+    messages: {
+      unsuccessfulAuth: 'Не удалось войти. Попробуйте еще раз',
+      unauthorized: 'Логин или пароль неверные',
+    },
   },
   profile: {
     title: 'Профиль',

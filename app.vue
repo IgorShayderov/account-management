@@ -7,11 +7,6 @@
 </template>
 
 <script setup>
-import colors from './colors';
-
-const colorVariables = Object.fromEntries(
-  Object.entries(colors).map(([k, v]) => [`--${k}-color`, v]),
-);
 </script>
 
 <style lang="scss" module>
