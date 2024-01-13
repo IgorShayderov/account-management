@@ -74,7 +74,7 @@ const breadcrumbs = [
 const userCity = computed({
   get: () => user.value.city,
   set: (value) => {
-    // request
+    // FIXME request
     user.value.city = value;
   },
 });
@@ -82,8 +82,10 @@ const userCity = computed({
 const userDate = computed({
   get: () => customDate(user.value.birthdate).format(DATE_FORMAT),
   set: (value) => {
-    // request
-    user.value.birthdate = customDate(value, DATE_FORMAT).toDate();
+    // FIXME request
+    if (value !== null) {
+      user.value.birthdate = customDate(value, DATE_FORMAT).toDate();
+    }
   },
 });
 
