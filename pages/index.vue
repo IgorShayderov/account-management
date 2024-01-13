@@ -6,24 +6,37 @@
       {{ $t('root.title') }}
     </h1>
 
-    <TicketsList />
+    <TicketsList>
+      <template #top-left>
+        <h2 class="q-table__title q-ma-none">
+          {{ $t('tickets.title') }}
+        </h2>
+
+        <NuxtLink
+          class="q-mx-md"
+          :class="$style.link"
+          :to="routes.ticketsPath()"
+        >
+          {{ $t('root.actions.details') }}
+        </NuxtLink>
+      </template>
+    </TicketsList>
   </div>
 </template>
 
 <script setup>
+const { routes } = useRoutes();
 const { t } = useI18n();
 
 const breacrumbs = [{ label: t('root.title') }];
 </script>
 
 <style lang="scss" module>
-:root {
-  --primary-color:  #007bff;
-  --secondary-color: #67a8e4;
-  --accent-color: rgb(51, 122, 183);
-  --dark-color: rgb(0, 0, 0);
-  --positive-color: #28a745;
-  --negative-color: red;
-  --info-color: #eee;
+.link {
+  color: var(--q-accent);
+
+  &:hover {
+      color: var(--q-dark);
+  }
 }
 </style>

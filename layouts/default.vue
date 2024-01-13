@@ -10,7 +10,7 @@
       </QBtn>
 
       <QBtn
-        color="accent"
+        color="primary"
         class="q-mr-md"
         :label="$t('root.actions.exit')"
         @click="handleExit"

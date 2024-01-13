@@ -48,6 +48,7 @@ export default {
   },
   tickets: {
     title: 'Тикеты',
+    filter: 'Поиск',
     fields: {
       id: {
         label: '#',
@@ -71,6 +72,7 @@ export default {
     actions: {
       exit: 'Выход',
       close: 'Закрыть',
+      details: 'Подробности',
     },
   },
 };

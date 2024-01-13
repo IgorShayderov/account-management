@@ -8,11 +8,15 @@
     :pagination="pagination"
     :rows-per-page-options="[10, 25, 50, 100, 0]"
     :loading="pending"
+    :filter="filter"
+    :table-header-class="$style.header"
+    :table-class="$style.table"
     row-key="name"
   >
     <template #body-cell-author="{ row }">
       <td>
         <NuxtLink
+          :class="$style.link"
           :to="routes.profilePath({ id: row.author.id })"
         >
           {{ row.author.name }}
@@ -23,11 +27,32 @@
     <template #body-cell-title="{ row }">
       <td>
         <NuxtLink
+          :class="$style.link"
           :to="routes.ticketPath({ id: row.id })"
         >
           {{ row.title }}
         </NuxtLink>
       </td>
+    </template>
+
+    <template #top-right>
+      <QInput
+        borderless
+        dense
+        debounce="300"
+        v-model="filter"
+        color="primary"
+        outlined
+        :placeholder="$t('tickets.filter')"
+      >
+        <template #append>
+          <QIcon name="search" />
+        </template>
+      </QInput>
+    </template>
+
+    <template #top-left>
+      <slot name="top-left" />
     </template>
   </QTable>
 </template>
@@ -45,10 +70,13 @@ if (data.value !== null) {
   tickets.push(...data.value);
 }
 
+const filter = ref('');
+
 const pagination = reactive({
   page: 1,
   rowsPerPage: 10,
 });
+
 const columns = [
   {
     name: 'id',
@@ -89,4 +117,32 @@ const columns = [
 ];
 </script>
 
-<style lang="scss" module></style>
+<style lang="scss" module>
+.header {
+  background-color: var(--q-accent);
+  color: var(--q-secondary);
+}
+
+.link {
+  color: var(--q-accent);
+
+  &:hover {
+      color: var(--q-dark);
+  }
+}
+
+.table :global {
+  tbody tr:nth-of-type(2n) {
+    background-color: var(--q-accent);
+    color: var(--q-secondary);
+
+    :local(.link) {
+      color: var(--q-secondary);
+
+      &:hover {
+        color: var(--q-dark);
+      }
+    }
+  }
+}
+</style>
