@@ -112,6 +112,12 @@ const onSubmit = async () => {
   try {
     isLoading.value = true;
 
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 3000);
+    });
+
     await logIn({ username: username.value, password: password.value });
 
     $router.push(routes.rootPath());

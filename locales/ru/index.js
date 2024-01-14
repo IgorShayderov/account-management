@@ -7,14 +7,14 @@ export default {
         placeholder: 'Имя пользователя',
         label: 'Введите имя',
         messages: {
-          required: 'Поле обязательное для заполнения',
+          required: 'Поле обязательно для заполнения',
         },
       },
       password: {
         placeholder: 'Пароль',
         label: 'Введите пароль',
         messages: {
-          required: 'Поле обязательное для заполнения',
+          required: 'Поле обязательно для заполнения',
         },
       },
     },
