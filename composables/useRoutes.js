@@ -2,8 +2,6 @@ const useRoutes = () => {
   const runtimeConfig = useRuntimeConfig();
   const BASE_API_PATH = runtimeConfig.public.USE_MOCK_API === 'true' ? '/api/mock' : '/api/v1';
 
-  console.log(runtimeConfig.public.USE_MOCK_API, 'USE_MOCK_API');
-
   const routes = {
     rootPath: () => '/',
     profilePath: ({ id } = {}) => (id ? `/profile/${id}` : '/profile'),

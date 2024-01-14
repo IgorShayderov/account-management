@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     public: {
       USE_MOCK_API: process.env.USE_MOCK_API,
       GUEST_PAGES,
+
     },
   },
   quasar: {
